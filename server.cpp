@@ -3,6 +3,7 @@
 #include <list>
 int main()
 {
+
     sf::TcpListener listener;
     listener.listen(53000);
 
@@ -24,6 +25,8 @@ int main()
                     clients.push_back(client);
 
                     selector.add(*client);
+
+                    std::cout << "Client: has connected!" << std::endl;
                 }
 
                 else
@@ -38,7 +41,6 @@ int main()
                     sf::TcpSocket& client = **it;
                     if(selector.isReady(client))
                     {
-
                         sf::Packet packet;
                         if(client.receive(packet) == sf::Socket::Done)
                         {
@@ -46,6 +48,7 @@ int main()
                             packet >> g;
 
                             std::cout<< g <<std::endl;
+                            client.send(packet);
                         }
                     }
                 }
