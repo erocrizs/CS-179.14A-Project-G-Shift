@@ -1,9 +1,7 @@
-#ifndef SPLASH_H_INCLUDED
-#define SPLASH_H_INCLUDED
+#ifndef MENUSCREEN_H_INCLUDED
+#define MENUSCREEN_H_INCLUDED
 
-#include "State.h"
-
-class Splash: public State
+class MenuScreen: public State
 {
 private:
     bool isFadingIn;
@@ -16,7 +14,6 @@ public:
     void update(float);
     void draw(sf::RenderWindow&);
     void onActivate();
-    void onDeactivate();
 };
 
-#endif // SPLASH_H_INCLUDED
+#endif // MENUSCREEN_H_INCLUDED

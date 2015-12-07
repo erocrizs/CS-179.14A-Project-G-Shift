@@ -1,5 +1,4 @@
 #include <SFML/Graphics.hpp>
-#include <iostream>
 #include <algorithm>
 #include "State.h"
 #include "Splash.h"
@@ -15,7 +14,6 @@ Splash::Splash()
 
 void Splash::update(float dt)
 {
-    std::cout << logoAlpha << " " << timeCount << std::endl;
     if(isFadingIn || isFadingOut || isOnPause)
         timeCount += dt;
     if(isFadingIn)
@@ -50,6 +48,8 @@ void Splash::update(float dt)
         if(timeCount>=1)
         {
             logoAlpha = 0;
+            isFadingOut = false;
+
         }
         else
         {
@@ -61,15 +61,26 @@ void Splash::update(float dt)
 
 void Splash::draw(sf::RenderWindow& window)
 {
-    sf::Vector2f size(100, 100);
-    sf::RectangleShape rect(size);
-    rect.setPosition(100, 100);
-    sf::Color rectColor(255, 255, 255, logoAlpha);
-    rect.setFillColor(rectColor);
-    window.draw(rect);
+    sf::Texture splash_logo;
+    splash_logo.loadFromFile("asset/sprites/chandelier-logo.png", sf::IntRect(0, 0, 0, 0));
+    sf::Sprite splash_sprite;
+    splash_sprite.setTexture(splash_logo);
+    int alpha = logoAlpha;
+    splash_sprite.setColor(sf::Color(255, 255, 255, alpha));
+    splash_sprite.setPosition(250, 280);
+    window.draw(splash_sprite);
 }
 
 void Splash::onActivate()
 {
     isFadingIn = true;
+}
+
+void Splash::onDeactivate()
+{
+    isFadingIn = false;
+    isOnPause = false;
+    isFadingOut = false;
+    timeCount = 0;
+    logoAlpha = 0;
 }

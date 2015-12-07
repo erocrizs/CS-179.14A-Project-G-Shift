@@ -1,5 +1,4 @@
 #include <SFML/Graphics.hpp>
-#include <iostream>
 #include "State.h"
 #include "StateManager.h"
 #include "Splash.h"
