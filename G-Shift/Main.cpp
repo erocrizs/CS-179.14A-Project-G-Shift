@@ -9,8 +9,9 @@ int main()
 {
     sf::RenderWindow window(sf::VideoMode(800, 600), "G-Shift");
     StateManager sm;
-    Splash splash;
-    sm.push(&splash);
+    Splash splash_screen;
+    sm.addScreen(&splash_screen);
+    sm.push(0);
     sf::Clock clock;
     while (window.isOpen())
     {

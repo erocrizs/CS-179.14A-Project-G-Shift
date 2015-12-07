@@ -1,17 +1,17 @@
 # depslib dependency file v1.0
-1449472310 source:c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\main.cpp
+1449474355 source:c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\main.cpp
 	<SFML/Graphics.hpp>
 	"State.h"
 	"StateManager.h"
 	"Splash.h"
 
-1449472411 source:c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\splash.cpp
+1449472558 source:c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\splash.cpp
 	<SFML/Graphics.hpp>
 	<algorithm>
 	"State.h"
 	"Splash.h"
 
-1449458311 c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\state.h
+1449473405 c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\state.h
 	<SFML/Graphics.hpp>
 
 1449472527 c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\splash.h
@@ -21,19 +21,30 @@
 	"State.h"
 	"StateManager.h"
 
-1449457135 c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\statemanager.h
+1449474558 c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\statemanager.h
 	<vector>
 	<SFML/Graphics.hpp>
 
-1449462230 source:c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\statemanager.cpp
+1449474561 source:c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\statemanager.cpp
 	"State.h"
+	"Splash.h"
 	"StateManager.h"
 	<cassert>
 	<iostream>
 
-1449468979 source:c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\vec2.cpp
+1449484178 source:c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\vec2.cpp
 	"Vec2.h"
 	<cmath>
+	<algorithm>
 
-1449468730 c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\vec2.h
+1449480334 c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\vec2.h
+
+1449484037 source:c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\button.cpp
+	<SFML/Graphics.hpp>
+	"Button.h"
+	<stdlib.h>
+
+1449483903 c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\button.h
+	<SFML/Graphics.hpp>
+	"Vec2.h"
 

@@ -1,4 +1,5 @@
 #include "State.h"
+#include "Splash.h"
 #include "StateManager.h"
 #include <cassert>
 #include <iostream>
@@ -9,8 +10,10 @@ StateManager::StateManager()
     m_states = temp;
 }
 
-void StateManager::push(State* s)
+void StateManager::push(int i)
 {
+    State* s = game_states[i];
+
     assert(s->manager==nullptr && "Only one manager per state allowed");
     State* prev = nullptr;
 
@@ -59,4 +62,9 @@ void StateManager::draw(sf::RenderWindow& window)
 {
     if(m_states.empty()) return;
     m_states.back()->draw(window);
+}
+
+void StateManager::addScreen(State* s)
+{
+    game_states.push_back(s);
 }
