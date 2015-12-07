@@ -1,13 +1,22 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
+#include "State.h"
+#include "StateManager.h"
+#include "Splash.h"
 
+float fps = 30;
+float spf = 1.0/fps;
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
-
+    sf::RenderWindow window(sf::VideoMode(800, 600), "G-Shift");
+    StateManager sm;
+    Splash splash;
+    sm.push(&splash);
+    sf::Clock clock;
     while (window.isOpen())
     {
+        clock.restart();
+
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -15,9 +24,19 @@ int main()
                 window.close();
         }
 
+        sm.update(spf);
+
         window.clear();
-        window.draw(shape);
+        sm.draw(window);
         window.display();
+
+        sf::Time t = clock.getElapsedTime();
+        float tInSec = t.asSeconds();
+        float rem = spf-tInSec;
+        if(rem>0) {
+            sf::sleep(sf::seconds(rem));
+        }
+        tInSec = clock.getElapsedTime().asSeconds();
     }
 
     return 0;

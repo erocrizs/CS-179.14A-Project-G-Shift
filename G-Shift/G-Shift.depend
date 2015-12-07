@@ -1,0 +1,35 @@
+# depslib dependency file v1.0
+1449462625 source:c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\main.cpp
+	<SFML/Graphics.hpp>
+	<iostream>
+	"State.h"
+	"StateManager.h"
+	"Splash.h"
+
+1449463773 source:c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\splash.cpp
+	<SFML/Graphics.hpp>
+	<iostream>
+	<algorithm>
+	"State.h"
+	"Splash.h"
+
+1449458311 c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\state.h
+	<SFML/Graphics.hpp>
+
+1449463782 c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\splash.h
+	"State.h"
+
+1449459862 source:c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\state.cpp
+	"State.h"
+	"StateManager.h"
+
+1449457135 c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\statemanager.h
+	<vector>
+	<SFML/Graphics.hpp>
+
+1449462230 source:c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\statemanager.cpp
+	"State.h"
+	"StateManager.h"
+	<cassert>
+	<iostream>
+
