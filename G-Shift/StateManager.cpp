@@ -1,6 +1,7 @@
 #include "State.h"
 #include "StateManager.h"
 #include <cassert>
+#include <iostream>
 
 StateManager::StateManager()
 {
@@ -11,7 +12,7 @@ StateManager::StateManager()
 void StateManager::push(State* s)
 {
     assert(s->manager==nullptr && "Only one manager per state allowed");
-    State* prev;
+    State* prev = nullptr;
 
     if(!m_states.empty())
     {
@@ -23,7 +24,7 @@ void StateManager::push(State* s)
     m_states.push_back(s);
     s->onActivate();
 
-    if(prev)
+    if(prev!=nullptr)
     {
         prev->m_isActive = false;
         prev->onDeactivate();

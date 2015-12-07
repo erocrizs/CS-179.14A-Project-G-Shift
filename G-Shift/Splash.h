@@ -10,7 +10,7 @@ private:
     bool isOnPause;
     bool isFadingOut;
     float timeCount;
-    unsigned int logoAlpha;
+    int logoAlpha;
 public:
     Splash();
     void update(float);

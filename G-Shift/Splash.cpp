@@ -1,19 +1,23 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
+#include <algorithm>
 #include "State.h"
 #include "Splash.h"
 
 Splash::Splash()
 {
-    bool isFadingIn = false;
-    bool isOnPause = false;
-    bool isFadingOut = false;
-    float timeCount = 0;
-    unsigned int logoAlpha = 0;
+    isFadingIn = false;
+    isOnPause = false;
+    isFadingOut = false;
+    timeCount = 0;
+    logoAlpha = 0;
 }
 
 void Splash::update(float dt)
 {
-    timeCount += dt;
+    std::cout << logoAlpha << " " << timeCount << std::endl;
+    if(isFadingIn || isFadingOut || isOnPause)
+        timeCount += dt;
     if(isFadingIn)
     {
         if(timeCount>=1)
@@ -26,7 +30,8 @@ void Splash::update(float dt)
         }
         else
         {
-            logoAlpha += (unsigned int)(255*dt);
+            int newAlpha = logoAlpha+(int)(255*dt);
+            logoAlpha = std::min(newAlpha, 255);
         }
     }
     else if(isOnPause)
@@ -48,7 +53,8 @@ void Splash::update(float dt)
         }
         else
         {
-            logoAlpha -= (255*dt);
+            int newAlpha = logoAlpha-(int)(255*dt);
+            logoAlpha = std::max(newAlpha, 0);
         }
     }
 }
