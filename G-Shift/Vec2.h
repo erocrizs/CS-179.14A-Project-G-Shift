@@ -21,4 +21,6 @@ public:
     Vec2 perp();
 };
 
+float clamp(float, float, float);
+
 #endif // VEC2_H_INCLUDED

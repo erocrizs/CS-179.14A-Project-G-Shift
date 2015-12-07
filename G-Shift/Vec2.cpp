@@ -1,5 +1,6 @@
 #include "Vec2.h"
 #include <cmath>
+#include <algorithm>
 
 Vec2::Vec2(float a, float b)
 {
@@ -61,4 +62,9 @@ Vec2 Vec2::perp()
 {
     Vec2 ret(-y, x);
     return ret;
+}
+
+float clamp(float val, float bot, float top)
+{
+    return std::min(top, std::max(val, bot));
 }
