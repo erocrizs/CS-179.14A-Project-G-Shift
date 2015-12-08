@@ -17,6 +17,7 @@ public:
     void draw(sf::RenderWindow&);
     void onActivate();
     void onDeactivate();
+    void onClick(float, float);
 };
 
 #endif // SPLASH_H_INCLUDED

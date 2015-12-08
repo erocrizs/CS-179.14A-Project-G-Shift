@@ -25,14 +25,15 @@ int main()
         clock.restart();
 
         sf::Event event;
+        float u = sf::Mouse::getPosition(window).x;
+        float v = sf::Mouse::getPosition(window).y;
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
                 window.close();
+            else if(event.type == sf::Event::MouseButtonPressed)
+                sm.onClick(u, v);
         }
-
-        float u = sf::Mouse::getPosition(window).x;
-        float v = sf::Mouse::getPosition(window).y;
         sm.update(spf, u, v);
 
         window.clear();

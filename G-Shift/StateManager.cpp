@@ -68,3 +68,9 @@ void StateManager::addScreen(State* s)
 {
     game_states.push_back(s);
 }
+
+void StateManager::onClick(float u, float v)
+{
+    if(m_states.empty()) return;
+    m_states.back()->onClick(u, v);
+}

@@ -18,6 +18,7 @@ public:
     void update(float, float, float);
     void draw(sf::RenderWindow&);
     void addScreen(State*);
+    void onClick(float, float);
 };
 
 #endif // STATEMANAGER_H_INCLUDED

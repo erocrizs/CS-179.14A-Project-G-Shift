@@ -85,3 +85,8 @@ void Splash::onDeactivate()
     timeCount = 0;
     logoAlpha = 0;
 }
+
+void Splash::onClick(float u, float v)
+{
+    manager->push(1);
+}
