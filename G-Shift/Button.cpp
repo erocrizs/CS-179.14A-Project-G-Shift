@@ -3,6 +3,11 @@
 #include <stdlib.h>
 #include <iostream>
 
+Button::Button()
+{
+    font.loadFromFile("asset/fonts/8-BIT WONDER.TTF");
+}
+
 bool Button::checkCollision(float u, float v)
 {
     float targetX = clamp(u, center.getX()-half_diagonal.getX(), center.getX()+half_diagonal.getX());
@@ -13,24 +18,28 @@ bool Button::checkCollision(float u, float v)
 
 void Button::draw(sf::RenderWindow& window)
 {
-    sf::Texture* show;
-    if(hover)
-        show = &hoverTexture;
-    else
-        show = &texture;
-
-    sf::Sprite button_sprite;
-    button_sprite.setTexture((*show));
     float drawPosX = center.getX()-half_diagonal.getX();
     float drawPosY = center.getY()-half_diagonal.getY();
-    button_sprite.setPosition(drawPosX, drawPosY);
-    window.draw(button_sprite);
-}
+    float width = half_diagonal.getX()*2;
+    float height = half_diagonal.getY()*2;
+    sf::RectangleShape drop;
+    drop.setSize(sf::Vector2f(width, height));
+    sf::Text label(content, font);
 
-void Button::setTexture(std::string ad, std::string had)
-{
-    texture.loadFromFile(ad, sf::IntRect(0, 0, 0, 0));
-    hoverTexture.loadFromFile(had, sf::IntRect(0, 0, 0, 0));
+    if(hover)
+    {
+        label.setColor(sf::Color::Black);
+        drop.setFillColor(sf::Color::White);
+    }
+    else
+    {
+        label.setColor(sf::Color::White);
+        drop.setFillColor(sf::Color(0,0,0,0));
+    }
+    drop.setPosition(drawPosX, drawPosY);
+    label.setPosition(drawPosX+3, drawPosY+3);
+    window.draw(drop);
+    window.draw(label);
 }
 
 void Button::setPosition(float u, float v)
@@ -41,4 +50,9 @@ void Button::setPosition(float u, float v)
 void Button::setDimension(float u, float v)
 {
     half_diagonal = Vec2(u/2.0, v/2.0);
+}
+
+void Button::setContent(const std::string cont)
+{
+    content = cont;
 }

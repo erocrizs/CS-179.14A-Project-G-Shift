@@ -8,18 +8,17 @@ class Button
 {
 private:
     bool hover;
-    sf::Texture hoverTexture;
-    sf::Texture texture;
+    std::string content;
+    sf::Font font;
     Vec2 center;
     Vec2 half_diagonal;
 public:
-    Button() {};
+    Button();
     bool checkCollision(float, float);
     void draw(sf::RenderWindow&);
-    void update(float, float);
-    void setTexture(std::string, std::string);
     void setPosition(float, float);
     void setDimension(float, float);
+    void setContent(std::string);
 };
 
 #endif // BUTTON_H_INCLUDED

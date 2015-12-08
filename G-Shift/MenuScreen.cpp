@@ -7,13 +7,13 @@
 
 MenuScreen::MenuScreen()
 {
-	host.setTexture("asset/sprites/host-button.png", "asset/sprites/host-button-hover.png");
+	host.setContent("Host Game");
 	host.setPosition(400, 400);
-	host.setDimension(300, 40);
+	host.setDimension(270, 40);
 
-	join.setTexture("asset/sprites/join-button.png", "asset/sprites/join-button-hover.png");
+	join.setContent("Join Game");
 	join.setPosition(400, 450);
-	join.setDimension(300, 40);
+	join.setDimension(270, 40);
 
 	logoTexture.loadFromFile("asset/sprites/game-logo.png", sf::IntRect(0, 0, 0, 0));
 
@@ -46,4 +46,13 @@ void MenuScreen::draw(sf::RenderWindow& window)
     curtain.setPosition(0, 0);
     curtain.setFillColor(sf::Color(0, 0, 0, cover));
     window.draw(curtain);
+}
+
+void MenuScreen::onClick(float u, float v)
+{
+    if(cover>0)
+    {
+        cover = 0;
+        return;
+    }
 }
