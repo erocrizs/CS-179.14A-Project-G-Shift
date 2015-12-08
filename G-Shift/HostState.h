@@ -2,7 +2,6 @@
 #define HOSTSTATE_H_INCLUDED
 
 #include <SFML/Graphics.hpp>
-#include <SFML/Network.hpp>
 #include "State.h"
 #include "Button.h"
 

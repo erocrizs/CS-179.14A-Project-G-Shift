@@ -5,6 +5,7 @@
 #include "Splash.h"
 #include "MenuScreen.h"
 #include "HostState.h"
+#include "GameState.h"
 
 float fps = 30;
 float spf = 1.0/fps;
@@ -19,6 +20,8 @@ int main()
     sm.addScreen(&menu_screen);
     HostState host_screen;
     sm.addScreen(&host_screen);
+    GameState game_screen;
+    sm.addScreen(&game_screen);
 
     sm.push(0);
 

@@ -53,4 +53,8 @@ void HostState::onClick(float u, float v)
     {
         manager->pop(1);
     }
+    else if(twoPlayer.checkCollision(u, v))
+    {
+        manager->push(3, "2");
+    }
 }
