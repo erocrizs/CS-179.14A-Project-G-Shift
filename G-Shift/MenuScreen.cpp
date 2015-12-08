@@ -1,5 +1,6 @@
 #include "MenuScreen.h"
 #include "State.h"
+#include "StateManager.h"
 #include "Button.h"
 #include <SFML/Graphics.hpp>
 #include <algorithm>
@@ -54,5 +55,9 @@ void MenuScreen::onClick(float u, float v)
     {
         cover = 0;
         return;
+    }
+    if(host.checkCollision(u, v))
+    {
+        manager->push(2);
     }
 }

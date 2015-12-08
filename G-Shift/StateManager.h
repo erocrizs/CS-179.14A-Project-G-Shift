@@ -13,8 +13,10 @@ private:
     std::vector<State*> m_states;
 public:
     StateManager();
-    void push(int id);
+    void push(unsigned int id);
+    void push(unsigned int, std::string);
     void pop(unsigned int);
+    void pop(unsigned int, std::string);
     void update(float, float, float);
     void draw(sf::RenderWindow&);
     void addScreen(State*);

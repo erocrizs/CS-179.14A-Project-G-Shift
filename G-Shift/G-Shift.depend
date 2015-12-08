@@ -48,30 +48,31 @@
 	<SFML/Graphics.hpp>
 	"Vec2.h"
 
-1449545288 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\button.cpp
+1449559138 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\button.cpp
 	<SFML/Graphics.hpp>
 	"Button.h"
 	<stdlib.h>
 	<iostream>
 
-1449545091 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\button.h
+1449559164 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\button.h
 	<SFML/Graphics.hpp>
 	"Vec2.h"
 
 1449539446 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\vec2.h
 
-1449547119 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\main.cpp
+1449557366 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"State.h"
 	"StateManager.h"
 	"Splash.h"
 	"MenuScreen.h"
+	"HostState.h"
 
-1449538008 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\state.h
+1449560233 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\state.h
 	<SFML/Graphics.hpp>
 
-1449546831 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\statemanager.h
+1449559995 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\statemanager.h
 	<vector>
 	<SFML/Graphics.hpp>
 
@@ -89,7 +90,7 @@
 	"State.h"
 	"StateManager.h"
 
-1449546896 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\statemanager.cpp
+1449560280 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\statemanager.cpp
 	"State.h"
 	"Splash.h"
 	"StateManager.h"
@@ -101,9 +102,10 @@
 	<cmath>
 	<algorithm>
 
-1449547194 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\menuscreen.cpp
+1449556975 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\menuscreen.cpp
 	"MenuScreen.h"
 	"State.h"
+	"StateManager.h"
 	"Button.h"
 	<SFML/Graphics.hpp>
 	<algorithm>
@@ -111,6 +113,18 @@
 
 1449547162 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\menuscreen.h
 	<SFML/Graphics.hpp>
+	"State.h"
+	"Button.h"
+
+1449559610 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\hoststate.cpp
+	"HostState.h"
+	"StateManager.h"
+	<SFML/Graphics.hpp>
+	<SFML/Network.hpp>
+
+1449559418 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\hoststate.h
+	<SFML/Graphics.hpp>
+	<SFML/Network.hpp>
 	"State.h"
 	"Button.h"
 

@@ -22,9 +22,10 @@ void Button::draw(sf::RenderWindow& window)
     float drawPosY = center.getY()-half_diagonal.getY();
     float width = half_diagonal.getX()*2;
     float height = half_diagonal.getY()*2;
+    unsigned int fontSize = (unsigned int)(height*0.75);
     sf::RectangleShape drop;
     drop.setSize(sf::Vector2f(width, height));
-    sf::Text label(content, font);
+    sf::Text label(content, font, fontSize);
 
     if(hover)
     {

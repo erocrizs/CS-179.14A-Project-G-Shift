@@ -10,7 +10,7 @@ StateManager::StateManager()
     m_states = temp;
 }
 
-void StateManager::push(int i)
+void StateManager::push(unsigned int i)
 {
     State* s = game_states[i];
 
@@ -34,6 +34,12 @@ void StateManager::push(int i)
     }
 }
 
+void StateManager::push(unsigned int i, std::string info)
+{
+    push(i);
+    m_states.back()->pass(info);
+}
+
 void StateManager::pop(unsigned int level)
 {
     while(level-- > 0 && !m_states.empty())
@@ -50,6 +56,13 @@ void StateManager::pop(unsigned int level)
         m_states.back()->m_isActive = true;
         m_states.back()->onActivate();
     }
+}
+
+void StateManager::pop(unsigned int level, std::string info)
+{
+    pop(level);
+    if(!m_states.empty())
+        m_states.back()->pass(info);
 }
 
 void StateManager::update(float dt, float u, float v)

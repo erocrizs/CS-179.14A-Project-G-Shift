@@ -9,7 +9,9 @@ class Button
 private:
     bool hover;
     std::string content;
+    unsigned int fontHeight;
     sf::Font font;
+    sf::Text label;
     Vec2 center;
     Vec2 half_diagonal;
 public:

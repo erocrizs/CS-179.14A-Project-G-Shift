@@ -4,6 +4,7 @@
 #include "StateManager.h"
 #include "Splash.h"
 #include "MenuScreen.h"
+#include "HostState.h"
 
 float fps = 30;
 float spf = 1.0/fps;
@@ -16,6 +17,8 @@ int main()
     sm.addScreen(&splash_screen);
     MenuScreen menu_screen;
     sm.addScreen(&menu_screen);
+    HostState host_screen;
+    sm.addScreen(&host_screen);
 
     sm.push(0);
 
@@ -35,7 +38,7 @@ int main()
                 sm.onClick(u, v);
         }
         sm.update(spf, u, v);
-
+        std::cout << "("<< u << ", " << v << ")" << std::endl;
         window.clear();
         sm.draw(window);
         window.display();
