@@ -12,6 +12,7 @@ public:
     GameState();
     void update(float, float, float);
     void draw(sf::RenderWindow&);
+    void onClick(float, float);
 };
 
 #endif // GAMESTATE_H_INCLUDED

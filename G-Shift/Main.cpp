@@ -6,6 +6,7 @@
 #include "MenuScreen.h"
 #include "HostState.h"
 #include "GameState.h"
+#include "JoinState.h"
 
 float fps = 30;
 float spf = 1.0/fps;
@@ -15,13 +16,15 @@ int main()
     StateManager sm;
 
     Splash splash_screen;
-    sm.addScreen(&splash_screen);
+    sm.addScreen(&splash_screen); //0
     MenuScreen menu_screen;
-    sm.addScreen(&menu_screen);
+    sm.addScreen(&menu_screen); //1
     HostState host_screen;
-    sm.addScreen(&host_screen);
+    sm.addScreen(&host_screen); //2
     GameState game_screen;
-    sm.addScreen(&game_screen);
+    sm.addScreen(&game_screen); //3
+    JoinState join_screen;
+    sm.addScreen(&join_screen); //4
 
     sm.push(0);
 

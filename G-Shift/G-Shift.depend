@@ -60,7 +60,7 @@
 
 1449539446 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\vec2.h
 
-1449569630 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\main.cpp
+1449571658 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"State.h"
@@ -69,6 +69,7 @@
 	"MenuScreen.h"
 	"HostState.h"
 	"GameState.h"
+	"JoinState.h"
 
 1449560233 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\state.h
 	<SFML/Graphics.hpp>
@@ -103,7 +104,7 @@
 	<cmath>
 	<algorithm>
 
-1449556975 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\menuscreen.cpp
+1449571692 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\menuscreen.cpp
 	"MenuScreen.h"
 	"State.h"
 	"StateManager.h"
@@ -117,7 +118,7 @@
 	"State.h"
 	"Button.h"
 
-1449570885 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\hoststate.cpp
+1449571170 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\hoststate.cpp
 	"HostState.h"
 	"StateManager.h"
 	<SFML/Graphics.hpp>
@@ -128,12 +129,23 @@
 	"State.h"
 	"Button.h"
 
-1449570874 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\gamestate.cpp
+1449571489 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\gamestate.cpp
 	"GameState.h"
 	"StateManager.h"
 	<SFML/Network.hpp>
 
-1449569605 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\gamestate.h
+1449571452 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\gamestate.h
+	"Button.h"
+	"State.h"
+
+1449571582 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\joinstate.cpp
+	"GameState.h"
+	"StateManager.h"
+	<SFML/Network.hpp>
+	"State.h"
+	"JoinState.h"
+
+1449571516 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\joinstate.h
 	"Button.h"
 	"State.h"
 

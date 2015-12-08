@@ -3,15 +3,16 @@
 #include "Button.h"
 #include "State.h"
 
-class GameState: public State
+class JoinState: public State
 {
 private:
     Button back;
     sf::Font font;
 public:
-    GameState();
+    JoinState();
     void update(float, float, float);
     void draw(sf::RenderWindow&);
+    void onClick(float, float);
 };
 
 

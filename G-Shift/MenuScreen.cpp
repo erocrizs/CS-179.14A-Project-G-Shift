@@ -60,4 +60,8 @@ void MenuScreen::onClick(float u, float v)
     {
         manager->push(2);
     }
+    else if(join.checkCollision(u, v))
+    {
+        manager->push(4);
+    }
 }
