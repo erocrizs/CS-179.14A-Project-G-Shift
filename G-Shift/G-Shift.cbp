@@ -27,6 +27,12 @@
 		<Unit filename="Button.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="GameState.cpp" />
+		<Unit filename="GameState.h" />
+		<Unit filename="HostState.cpp" />
+		<Unit filename="HostState.h" />
+		<Unit filename="JoinState.cpp" />
+		<Unit filename="JoinState.h" />
 		<Unit filename="Main.cpp" />
 		<Unit filename="MenuScreen.cpp" />
 		<Unit filename="MenuScreen.h">
