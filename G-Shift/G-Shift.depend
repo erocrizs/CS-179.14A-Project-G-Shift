@@ -1,0 +1,151 @@
+# depslib dependency file v1.0
+1449474355 source:c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\main.cpp
+	<SFML/Graphics.hpp>
+	"State.h"
+	"StateManager.h"
+	"Splash.h"
+
+1449472558 source:c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\splash.cpp
+	<SFML/Graphics.hpp>
+	<algorithm>
+	"State.h"
+	"Splash.h"
+
+1449473405 c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\state.h
+	<SFML/Graphics.hpp>
+
+1449472527 c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\splash.h
+	"State.h"
+
+1449459862 source:c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\state.cpp
+	"State.h"
+	"StateManager.h"
+
+1449474558 c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\statemanager.h
+	<vector>
+	<SFML/Graphics.hpp>
+
+1449474561 source:c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\statemanager.cpp
+	"State.h"
+	"Splash.h"
+	"StateManager.h"
+	<cassert>
+	<iostream>
+
+1449484178 source:c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\vec2.cpp
+	"Vec2.h"
+	<cmath>
+	<algorithm>
+
+1449480334 c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\vec2.h
+
+1449484037 source:c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\button.cpp
+	<SFML/Graphics.hpp>
+	"Button.h"
+	<stdlib.h>
+
+1449483903 c:\users\aemiel\documents\dev projects\cs-179.14a-project-g-shift\g-shift\button.h
+	<SFML/Graphics.hpp>
+	"Vec2.h"
+
+1449570866 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\button.cpp
+	<SFML/Graphics.hpp>
+	"Button.h"
+	<stdlib.h>
+	<iostream>
+
+1449559164 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\button.h
+	<SFML/Graphics.hpp>
+	"Vec2.h"
+
+1449539446 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\vec2.h
+
+1449571658 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\main.cpp
+	<SFML/Graphics.hpp>
+	<iostream>
+	"State.h"
+	"StateManager.h"
+	"Splash.h"
+	"MenuScreen.h"
+	"HostState.h"
+	"GameState.h"
+	"JoinState.h"
+
+1449560233 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\state.h
+	<SFML/Graphics.hpp>
+
+1449559995 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\statemanager.h
+	<vector>
+	<SFML/Graphics.hpp>
+
+1449546926 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\splash.h
+	"State.h"
+
+1449546962 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\splash.cpp
+	<SFML/Graphics.hpp>
+	<algorithm>
+	"State.h"
+	"StateManager.h"
+	"Splash.h"
+
+1449536319 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\state.cpp
+	"State.h"
+	"StateManager.h"
+
+1449560280 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\statemanager.cpp
+	"State.h"
+	"Splash.h"
+	"StateManager.h"
+	<cassert>
+	<iostream>
+
+1449539433 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\vec2.cpp
+	"Vec2.h"
+	<cmath>
+	<algorithm>
+
+1449571692 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\menuscreen.cpp
+	"MenuScreen.h"
+	"State.h"
+	"StateManager.h"
+	"Button.h"
+	<SFML/Graphics.hpp>
+	<algorithm>
+	<iostream>
+
+1449547162 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\menuscreen.h
+	<SFML/Graphics.hpp>
+	"State.h"
+	"Button.h"
+
+1449571170 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\hoststate.cpp
+	"HostState.h"
+	"StateManager.h"
+	<SFML/Graphics.hpp>
+	<SFML/Network.hpp>
+
+1449569047 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\hoststate.h
+	<SFML/Graphics.hpp>
+	"State.h"
+	"Button.h"
+
+1449571489 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\gamestate.cpp
+	"GameState.h"
+	"StateManager.h"
+	<SFML/Network.hpp>
+
+1449571452 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\gamestate.h
+	"Button.h"
+	"State.h"
+
+1449571582 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\joinstate.cpp
+	"GameState.h"
+	"StateManager.h"
+	<SFML/Network.hpp>
+	"State.h"
+	"JoinState.h"
+
+1449571516 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\joinstate.h
+	"Button.h"
+	"State.h"
+
