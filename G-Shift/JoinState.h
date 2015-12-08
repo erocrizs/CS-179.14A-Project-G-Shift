@@ -1,5 +1,5 @@
-#ifndef GAMESTATE_H_INCLUDED
-#define GAMESTATE_H_INCLUDED
+#ifndef JOINSTATE_H_INCLUDED
+#define JOINSTATE_H_INCLUDED
 #include "Button.h"
 #include "State.h"
 
@@ -14,4 +14,5 @@ public:
     void draw(sf::RenderWindow&);
 };
 
-#endif // GAMESTATE_H_INCLUDED
+
+#endif // JOINSTATE_H_INCLUDED

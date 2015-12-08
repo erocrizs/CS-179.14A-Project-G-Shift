@@ -7,7 +7,7 @@ GameState::GameState()
 	back.setContent("Back");
 	back.setPosition(150, 550);
 	back.setDimension(200, 35);
-    font.loadFromFile("asset/fonts/8-BIT WONDER.TTF");
+    font.loadFromFile("asset/fonts/PressStart2P.ttf");
 }
 
 void GameState::update(float dt, float u, float v)

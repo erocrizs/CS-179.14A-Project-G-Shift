@@ -5,7 +5,7 @@
 
 Button::Button()
 {
-    font.loadFromFile("asset/fonts/8-BIT WONDER.TTF");
+    font.loadFromFile("asset/fonts/PressStart2P.ttf");
 }
 
 bool Button::checkCollision(float u, float v)

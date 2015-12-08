@@ -7,20 +7,20 @@ HostState::HostState()
 {
 	twoPlayer.setContent("2 Players");
 	twoPlayer.setPosition(400, 250);
-	twoPlayer.setDimension(225, 35);
+	twoPlayer.setDimension(200, 30);
 
 	threePlayer.setContent("3 Players");
 	threePlayer.setPosition(400, 300);
-	threePlayer.setDimension(225, 35);
+	threePlayer.setDimension(200, 30);
 
 	fourPlayer.setContent("4 Players");
 	fourPlayer.setPosition(400, 350);
-	fourPlayer.setDimension(225, 35);
+	fourPlayer.setDimension(200, 30);
 
 	back.setContent("Back");
 	back.setPosition(150, 550);
-	back.setDimension(200, 35);
-    font.loadFromFile("asset/fonts/8-BIT WONDER.TTF");
+	back.setDimension(200, 30);
+    font.loadFromFile("asset/fonts/PressStart2P.ttf");
 }
 
 void HostState::update(float dt, float u, float v)
