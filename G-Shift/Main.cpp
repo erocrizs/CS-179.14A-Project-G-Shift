@@ -1,17 +1,24 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
 #include "State.h"
 #include "StateManager.h"
 #include "Splash.h"
+#include "MenuScreen.h"
 
 float fps = 30;
 float spf = 1.0/fps;
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "G-Shift");
+    sf::RenderWindow window(sf::VideoMode(800, 600), "G-Shift", sf::Style::Close);
     StateManager sm;
+
     Splash splash_screen;
     sm.addScreen(&splash_screen);
+    MenuScreen menu_screen;
+    sm.addScreen(&menu_screen);
+
     sm.push(0);
+
     sf::Clock clock;
     while (window.isOpen())
     {
@@ -24,7 +31,9 @@ int main()
                 window.close();
         }
 
-        sm.update(spf);
+        float u = sf::Mouse::getPosition(window).x;
+        float v = sf::Mouse::getPosition(window).y;
+        sm.update(spf, u, v);
 
         window.clear();
         sm.draw(window);
@@ -36,7 +45,6 @@ int main()
         if(rem>0) {
             sf::sleep(sf::seconds(rem));
         }
-        tInSec = clock.getElapsedTime().asSeconds();
     }
 
     return 0;

@@ -10,6 +10,7 @@ public:
     float getX();
     float getY();
 
+    Vec2();
     Vec2(float, float);
     Vec2 operator+ (Vec2&);
     Vec2 operator- (Vec2&);

@@ -48,3 +48,68 @@
 	<SFML/Graphics.hpp>
 	"Vec2.h"
 
+1449541016 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\button.cpp
+	<SFML/Graphics.hpp>
+	"Button.h"
+	<stdlib.h>
+	<iostream>
+
+1449539567 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\button.h
+	<SFML/Graphics.hpp>
+	"Vec2.h"
+
+1449539446 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\vec2.h
+
+1449539671 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\main.cpp
+	<SFML/Graphics.hpp>
+	"State.h"
+	"StateManager.h"
+	"Splash.h"
+	"MenuScreen.h"
+
+1449538008 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\state.h
+	<SFML/Graphics.hpp>
+
+1449537619 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\statemanager.h
+	<vector>
+	<SFML/Graphics.hpp>
+
+1449537588 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\splash.h
+	"State.h"
+
+1449539752 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\splash.cpp
+	<SFML/Graphics.hpp>
+	<algorithm>
+	"State.h"
+	"StateManager.h"
+	"Splash.h"
+
+1449536319 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\state.cpp
+	"State.h"
+	"StateManager.h"
+
+1449540158 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\statemanager.cpp
+	"State.h"
+	"Splash.h"
+	"StateManager.h"
+	<cassert>
+	<iostream>
+
+1449539433 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\vec2.cpp
+	"Vec2.h"
+	<cmath>
+	<algorithm>
+
+1449541398 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\menuscreen.cpp
+	"MenuScreen.h"
+	"State.h"
+	"Button.h"
+	<SFML/Graphics.hpp>
+	<algorithm>
+	<iostream>
+
+1449541135 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\menuscreen.h
+	<SFML/Graphics.hpp>
+	"State.h"
+	"Button.h"
+

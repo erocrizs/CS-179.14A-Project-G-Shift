@@ -1,20 +1,14 @@
 #include <SFML/Graphics.hpp>
 #include "Button.h"
 #include <stdlib.h>
+#include <iostream>
 
 bool Button::checkCollision(float u, float v)
 {
     float targetX = clamp(u, center.getX()-half_diagonal.getX(), center.getX()+half_diagonal.getX());
     float targetY = clamp(v, center.getY()-half_diagonal.getY(), center.getY()+half_diagonal.getY());
-    Vec2 target(targetX, targetY);
-
-    Vec2 vecPos(u, v);
-    Vec2 actual = actual-center;
-
-    float targetDist = target.magnitude();
-    float actualDist = actual.magnitude();
-
-    return (actualDist<=targetDist);
+    hover = (targetX==u && targetY==v);
+    return hover;
 }
 
 void Button::draw(sf::RenderWindow& window)
@@ -32,7 +26,6 @@ void Button::draw(sf::RenderWindow& window)
     button_sprite.setPosition(drawPosX, drawPosY);
     window.draw(button_sprite);
 }
-
 
 void Button::setTexture(std::string ad, std::string had)
 {

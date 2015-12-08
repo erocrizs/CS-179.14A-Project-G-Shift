@@ -52,10 +52,10 @@ void StateManager::pop(unsigned int level)
     }
 }
 
-void StateManager::update(float dt)
+void StateManager::update(float dt, float u, float v)
 {
     if(m_states.empty()) return;
-    m_states.back()->update(dt);
+    m_states.back()->update(dt, u, v);
 }
 
 void StateManager::draw(sf::RenderWindow& window)

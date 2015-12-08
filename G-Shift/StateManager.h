@@ -15,7 +15,7 @@ public:
     StateManager();
     void push(int id);
     void pop(unsigned int);
-    void update(float dt);
+    void update(float, float, float);
     void draw(sf::RenderWindow&);
     void addScreen(State*);
 };

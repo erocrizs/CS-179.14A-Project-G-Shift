@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <algorithm>
 #include "State.h"
+#include "StateManager.h"
 #include "Splash.h"
 
 Splash::Splash()
@@ -12,7 +13,7 @@ Splash::Splash()
     logoAlpha = 0;
 }
 
-void Splash::update(float dt)
+void Splash::update(float dt, float u, float v)
 {
     if(isFadingIn || isFadingOut || isOnPause)
         timeCount += dt;
@@ -49,7 +50,7 @@ void Splash::update(float dt)
         {
             logoAlpha = 0;
             isFadingOut = false;
-
+            manager->push(1);
         }
         else
         {

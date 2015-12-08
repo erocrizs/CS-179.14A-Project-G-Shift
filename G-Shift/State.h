@@ -20,10 +20,11 @@ protected:
     }
 public:
     State();
-    virtual void update(float) = 0;
+    virtual void update(float, float, float) = 0;
     virtual void draw(sf::RenderWindow& window) = 0;
     virtual void onActivate() {}
     virtual void onDeactivate() {}
+    virtual void onClick(float, float) {};
 };
 
 #endif // STATE_H_INCLUDED

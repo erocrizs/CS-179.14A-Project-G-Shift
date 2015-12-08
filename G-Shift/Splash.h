@@ -13,7 +13,7 @@ private:
     int logoAlpha;
 public:
     Splash();
-    void update(float);
+    void update(float, float, float);
     void draw(sf::RenderWindow&);
     void onActivate();
     void onDeactivate();

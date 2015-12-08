@@ -13,7 +13,7 @@ private:
     Vec2 center;
     Vec2 half_diagonal;
 public:
-    Button();
+    Button() {};
     bool checkCollision(float, float);
     void draw(sf::RenderWindow&);
     void update(float, float);
