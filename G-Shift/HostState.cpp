@@ -1,4 +1,5 @@
 #include "HostState.h"
+#include "GameState.h"
 #include "StateManager.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Network.hpp>
@@ -21,6 +22,7 @@ HostState::HostState()
 	back.setPosition(150, 550);
 	back.setDimension(200, 30);
     font.loadFromFile("asset/fonts/PressStart2P.ttf");
+
 }
 
 void HostState::update(float dt, float u, float v)
@@ -55,6 +57,18 @@ void HostState::onClick(float u, float v)
     }
     else if(twoPlayer.checkCollision(u, v))
     {
-        manager->push(3, "2");
+        manager->push(3, "h 2");
+    }
+    else if(threePlayer.checkCollision(u, v))
+    {
+        manager->push(3, "h 3");
+    }
+    else if(fourPlayer.checkCollision(u, v))
+    {
+        manager->push(3, "h 4");
     }
 }
+
+
+
+

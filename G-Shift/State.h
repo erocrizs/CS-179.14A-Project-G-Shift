@@ -27,6 +27,8 @@ public:
     virtual void onActivate() {}
     virtual void onDeactivate() {}
     virtual void onClick(float, float) {};
+    virtual void getText(std::string) {};
+    virtual void accept() {};
 };
 
 #endif // STATE_H_INCLUDED

@@ -6,13 +6,15 @@
 class JoinState: public State
 {
 private:
-    Button back;
+    Button back, forth;
     sf::Font font;
 public:
     JoinState();
     void update(float, float, float);
     void draw(sf::RenderWindow&);
     void onClick(float, float);
+    void getText(std::string text);
+    void accept();
 };
 
 

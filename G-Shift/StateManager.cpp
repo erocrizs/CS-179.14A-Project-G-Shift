@@ -87,3 +87,15 @@ void StateManager::onClick(float u, float v)
     if(m_states.empty()) return;
     m_states.back()->onClick(u, v);
 }
+
+void StateManager::getText(std::string text)
+{
+    if(m_states.empty()) return;
+    m_states.back()->getText(text);
+}
+
+void StateManager::accept()
+{
+    if(m_states.empty()) return;
+    m_states.back()->accept();
+}

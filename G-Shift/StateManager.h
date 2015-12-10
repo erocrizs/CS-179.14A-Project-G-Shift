@@ -21,6 +21,8 @@ public:
     void draw(sf::RenderWindow&);
     void addScreen(State*);
     void onClick(float, float);
+    void getText(std::string text);
+    void accept();
 };
 
 #endif // STATEMANAGER_H_INCLUDED

@@ -10,6 +10,7 @@
 
 float fps = 30;
 float spf = 1.0/fps;
+std::string text;
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(800, 600), "G-Shift", sf::Style::Close);
@@ -42,9 +43,24 @@ int main()
                 window.close();
             else if(event.type == sf::Event::MouseButtonPressed)
                 sm.onClick(u, v);
+            else if (event.type == sf::Event::TextEntered)
+            {
+                if (event.text.unicode == '\b')
+                {
+                    if(text.size() == 0){}
+                    else{text.erase(text.size() - 1, 1);}
+
+                }
+                else if (event.text.unicode < 128)
+                {
+                    text += static_cast<char>(event.text.unicode);
+                }
+                sm.getText(text);
+                std::cout << text << std::endl;
+            }
         }
         sm.update(spf, u, v);
-        std::cout << "("<< u << ", " << v << ")" << std::endl;
+        //std::cout << "("<< u << ", " << v << ")" << std::endl;
         window.clear();
         sm.draw(window);
         window.display();
