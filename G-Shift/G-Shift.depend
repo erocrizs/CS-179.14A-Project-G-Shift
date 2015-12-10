@@ -60,7 +60,7 @@
 
 1449760123 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\vec2.h
 
-1449763599 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\main.cpp
+1449770570 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"State.h"
@@ -131,21 +131,22 @@
 	"State.h"
 	"Button.h"
 
-1449764779 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\gamestate.cpp
+1449770736 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\gamestate.cpp
 	"GameState.h"
+	"GameServer.h"
 	"StateManager.h"
 	<iostream>
 	<SFML/Network.hpp>
 	<list>
 	<string.h>
 
-1449764116 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\gamestate.h
+1449770588 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\gamestate.h
 	"Button.h"
 	"State.h"
 	<string>
 	"GameServer.h"
 
-1449760123 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\joinstate.cpp
+1449765767 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\joinstate.cpp
 	"GameState.h"
 	"StateManager.h"
 	<SFML/Network.hpp>
@@ -715,10 +716,10 @@
 	<SFML/Network/Socket.hpp>
 	<vector>
 
-1449763613 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\gameserver.h
+1449768938 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\gameserver.h
 	<SFML/Network.hpp>
 
-1449764911 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\gameserver.cpp
+1449770813 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\gameserver.cpp
 	"GameServer.h"
 	<iostream>
 

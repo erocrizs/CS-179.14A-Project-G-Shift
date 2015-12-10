@@ -10,18 +10,19 @@ class GameState: public State
 private:
     GameServer gs;
     bool isHost;
-    Button back;
+    bool isReady;
     sf::Font font;
-    sf::Text taking;
     sf::TcpSocket client;
     sf::IpAddress ip;
     sf::Thread game_thread;
 public:
     GameState();
+    void gameReady();
     void update(float, float, float);
     void draw(sf::RenderWindow&);
     void onClick(float, float);
     void pass(std::string);
+    void onDeactivate();
     GameServer* getServer();
 };
 

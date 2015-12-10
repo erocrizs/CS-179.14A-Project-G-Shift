@@ -3,11 +3,19 @@
 
 GameServer::GameServer()
 {
+    clientNumber = 0;
+    joinedNumber = 0;
     reset();
 }
 
 void GameServer::reset()
 {
+    listener.close();
+    for(int i=0; i<clientNumber; i++)
+    {
+        if(clients[i].getRemoteAddress()!=sf::IpAddress::None)
+            clients[i].disconnect();
+    }
     clientNumber = 0;
     joinedNumber = 0;
     timesUp = false;
@@ -26,18 +34,20 @@ void GameServer::timeFinish()
 void GameServer::start_server()
 {
     sf::Packet connectNotif;
-    connectNotif << "Connected";
-
+    connectNotif << true;
     while(joinedNumber < clientNumber)
     {
-        sf::TcpListener listener;
+        listener.close();
         listener.listen(53000);
         listener.accept(clients[joinedNumber]);
-        clients[joinedNumber].send(connectNotif);
-        std::cout << joinedNumber << " : " << clientNumber << std::endl;
-        joinedNumber++;
+        if(clients[joinedNumber].getRemoteAddress()!= sf::IpAddress::None)
+            joinedNumber++;
     }
-    std::cout << "someone connected" << std::endl;
+
+    for(int i=0; i<clientNumber; i++)
+    {
+        clients[i].send(connectNotif);
+    }
 
     while(!timesUp)
     {
@@ -55,6 +65,12 @@ void GameServer::start_server()
         sendPacket << "Quando";
         for(int i=0; i<clientNumber; i++)
             clients[i].send(sendPacket);
+
     }
 
+}
+
+void GameServer::setGameState(GameState* state)
+{
+    gs = state;
 }

@@ -76,6 +76,5 @@ void JoinState::getText(std::string text)
 
 void JoinState::accept()
 {
-    std::cout << "PANGIT" << std::endl;
     manager->push(3, "c " + str);
 }

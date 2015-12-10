@@ -29,9 +29,7 @@ int main()
     sm.addScreen(&join_screen); //4
 
     sm.push(0);
-
     GameServer* gs = game_screen.getServer();
-
     sf::Clock clock;
     while (window.isOpen())
     {
@@ -42,9 +40,10 @@ int main()
         float v = sf::Mouse::getPosition(window).y;
         while (window.pollEvent(event))
         {
-            if (event.type == sf::Event::Closed)
+            if (event.type == sf::Event::Closed){
                 window.close();
-            else if(event.type == sf::Event::MouseButtonPressed)
+                gs->timeFinish();
+            } else if(event.type == sf::Event::MouseButtonPressed)
                 sm.onClick(u, v);
             else if (event.type == sf::Event::TextEntered)
             {
@@ -75,6 +74,7 @@ int main()
             sf::sleep(sf::seconds(rem));
         }
     }
+
 
     return 0;
 }
