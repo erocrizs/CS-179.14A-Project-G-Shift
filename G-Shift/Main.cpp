@@ -7,6 +7,7 @@
 #include "HostState.h"
 #include "GameState.h"
 #include "JoinState.h"
+#include "GameServer.h"
 
 float fps = 30;
 float spf = 1.0/fps;
@@ -28,6 +29,8 @@ int main()
     sm.addScreen(&join_screen); //4
 
     sm.push(0);
+
+    GameServer* gs = game_screen.getServer();
 
     sf::Clock clock;
     while (window.isOpen())

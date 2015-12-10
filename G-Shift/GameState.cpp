@@ -7,17 +7,10 @@
 
 void allowConnections();
 void connectTo(std::string a);
-sf::TcpSocket socket;
-int numPlayers;
-int players;
-sf::TcpListener listener;
-sf::SocketSelector selector;
-sf::Text taking;
-std::list<sf::Packet> coords;
 
-GameState::GameState()
+GameState::GameState(): game_thread(&GameServer::start_server, &gs)
 {
-	back.setContent("Back");
+	back.setContent("Cancel");
 	back.setPosition(150, 550);
 	back.setDimension(200, 35);
     font.loadFromFile("asset/fonts/PressStart2P.ttf");
@@ -30,8 +23,13 @@ void GameState::update(float dt, float u, float v)
 
 void GameState::draw(sf::RenderWindow& window)
 {
-    sf::IpAddress localhost = sf::IpAddress::getLocalAddress();
-    sf::Text header("Your IP Address: " + localhost.toString(), font, 20);
+
+    std::string message = "Connecting...";
+    if(isHost)
+    {
+        message = "Your IP Address: " + sf::IpAddress::getLocalAddress().toString();
+    }
+    sf::Text header(message, font, 20);
     header.setColor(sf::Color::White);
     float headerW = header.getLocalBounds().width;
     float headerH = header.getLocalBounds().height;
@@ -46,15 +44,12 @@ void GameState::draw(sf::RenderWindow& window)
     back.draw(window);
 }
 
-void GameState::onActivate()
-{
-    numPlayers++;
-}
-
 void GameState::onClick(float u, float v)
 {
     if(back.checkCollision(u, v))
     {
+        gs.timeFinish();
+        game_thread.wait();
         manager->pop(1);
     }
 }
@@ -62,30 +57,40 @@ void GameState::onClick(float u, float v)
 
 void GameState::pass(std::string play)
 {
-    std::cout << "tell me when will you be mine~~~" << std::endl;
+    std::string ipString = "localhost";
+    isHost = (play[0]=='h');
     if(play[0]=='c')
     {
-        std::cout << "tell me quando quando quandoo~~~" << std::endl;
-        std::string ip = play.substr(2, play.size());
-        std::cout << "MUDA" << std::endl;
-        connectTo(ip);
+        ipString = play.substr(2);
     }
     else if(play[0]=='h')
     {
-         std::cout << "STAHP" << std::endl;
-         std::string m = play.substr(2, 2);
-         if(m == "2") players = 2;
-         else if (m == "3") players = 3;
-         else if (m == "4") players = 4;
-         allowConnections();
+        int players = 1;
+        if(play[2] == '2') players = 2;
+        else if (play[2] == '3') players = 3;
+        else if (play[2] == '4') players = 4;
+
+        gs.reset();
+        gs.setClientNumber(players);
+        game_thread.launch();
     }
 
+    ip = sf::IpAddress(ipString);
+    client.connect(ip, 53000);
+    sf::Packet packet;
+    client.receive(packet);
+    std::string s;
+    packet >> s;
+    std::cout << s << "awesome" << std::endl;
 }
 
+GameServer* GameState::getServer()
+{
+    return &gs;
+}
 
+/*
 void allowConnections(){
-    std::cout<< "Initiating server" << std::endl;
-    std::cout << players << " PLAYAHS ALLOWED" <<std::endl;
     std::list<sf::TcpSocket*> clients;
     listener.listen(53000);
     selector.add(listener);
@@ -147,3 +152,4 @@ void connectTo(std::string a){
         std::cout << "Connected" <<std::endl;
     }
 }
+*/
