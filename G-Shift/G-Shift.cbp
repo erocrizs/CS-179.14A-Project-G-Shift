@@ -33,6 +33,8 @@
 		</Compiler>
 		<Unit filename="Button.cpp" />
 		<Unit filename="Button.h" />
+		<Unit filename="GameServer.cpp" />
+		<Unit filename="GameServer.h" />
 		<Unit filename="GameState.cpp" />
 		<Unit filename="GameState.h" />
 		<Unit filename="HostState.cpp" />
