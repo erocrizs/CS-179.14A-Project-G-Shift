@@ -14,6 +14,16 @@ GameState::GameState(): game_thread(&GameServer::start_server, &gs)
     client.setBlocking(false);
     font.loadFromFile("asset/fonts/PressStart2P.ttf");
     isReady = false;
+
+    levelFile.loadFromFile("asset/levels/stage1.png");
+    for(int x = 0; x<40; x++)
+    {
+        for(int y=0; y<21; y++)
+        {
+            blockList[x][y].position = Vec2(x*40,y*40);
+            blockList[x][y].active = levelFile.getPixel(x, y)==sf::Color::Black;
+        }
+    }
 }
 
 void GameState::update(float dt, float u, float v)
@@ -21,9 +31,16 @@ void GameState::update(float dt, float u, float v)
     if(isReady)
     {
         sf::Packet toSend;
-        client.send(toSend);
 
-        //TODO
+        toSend << sf::Keyboard::isKeyPressed(sf::Keyboard::A);
+        toSend << sf::Keyboard::isKeyPressed(sf::Keyboard::D);
+        toSend << sf::Keyboard::isKeyPressed(sf::Keyboard::Space);
+        toSend << sf::Mouse::isButtonPressed(sf::Mouse::Left);
+        toSend << sf::Keyboard::isKeyPressed(sf::Keyboard::LShift);
+        toSend << u;
+        toSend << v;
+
+        client.send(toSend);
 
         sf::Packet toGet;
         client.receive(toGet);
@@ -43,7 +60,13 @@ void GameState::draw(sf::RenderWindow& window)
 {
     if(isReady)
     {
-        // TODO
+        for(int i=0; i<40; i++) {
+            for(int j=0; j<21; j++) {
+                Vec2 pos = blockList[i][j].position;
+                if(clamp(pos.getX(),-40, 840)==pos.getX() && clamp(pos.getY(), -40, 640)==pos.getY())
+                    blockList[i][j].draw(window);
+            }
+        }
     } else
     {
         std::string message = "Connecting...";
@@ -82,13 +105,13 @@ void GameState::pass(std::string play)
     }
     else if(play[0]=='h')
     {
-        int players = 1;
-        if(play[2] == '2') players = 2;
-        else if (play[2] == '3') players = 3;
-        else if (play[2] == '4') players = 4;
+        player = 1;
+        if(play[2] == '2') player = 2;
+        else if (play[2] == '3') player = 3;
+        else if (play[2] == '4') player = 4;
 
         gs.reset();
-        gs.setClientNumber(players);
+        gs.setClientNumber(player);
         game_thread.launch();
     }
 
@@ -106,4 +129,5 @@ GameServer* GameState::getServer()
 void GameState::onDeactivate()
 {
     isReady = false;
+    player = 0;
 }

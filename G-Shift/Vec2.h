@@ -12,11 +12,11 @@ public:
 
     Vec2();
     Vec2(float, float);
-    Vec2 operator+ (Vec2&);
-    Vec2 operator- (Vec2&);
+    Vec2 operator+ (Vec2);
+    Vec2 operator- (Vec2);
     Vec2 operator* (float);
-    float operator* (Vec2&);
-    float operator% (Vec2&);
+    float operator* (Vec2);
+    float operator% (Vec2);
     float magnitude();
     Vec2 normalize();
     Vec2 perp();

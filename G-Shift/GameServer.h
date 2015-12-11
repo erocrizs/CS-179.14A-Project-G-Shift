@@ -2,6 +2,8 @@
 #define GAMESERVER_H_INCLUDED
 
 #include <SFML/Network.hpp>
+#include "Player.h"
+#include "Bullet.h"
 
 class GameState;
 class GameServer {
@@ -12,6 +14,8 @@ private:
     bool running;
     GameState* gs;
     sf::TcpSocket clients[4];
+    Bullet bullet[4];
+    Player player[4];
     sf::TcpListener listener;
 public:
     GameServer();

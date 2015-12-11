@@ -55,17 +55,45 @@ void GameServer::start_server()
         sf::Packet receivePacket;
         for(int i=0; i<clientNumber; i++)
         {
+            Player curr = player[i];
             clients[i].receive(receivePacket);
-            // do stuff
+            bool left;
+            bool right;
+            bool shoot;
+            bool shift;
+            bool jump;
+            float mouseX;
+            float mouseY;
+            receivePacket >> left >> right >> jump >> shoot >> shift >> mouseX >> mouseY;
+            if(shoot && bullet[i].isActive()){
+                bullet[i].activate(true);
+                bullet[i].setVelocity(mouseX, mouseY);
+                bullet[i].setCoords(curr.getPosition());
+            } if(jump && !curr.isJumping())
+            {
+                jump = true;
+            }
+            if(curr.isJumping())
+            {
+                curr.jumpUp(1.0/30);
+            } else {
+                curr.fall(1.0/30);
+            }
+            if(left)
+                curr.move(-1, 1.0/30);
+            else if(right)
+                curr.move(1, 1.0/30);
+            if(shift){
+                curr.setOrientation(((curr.getOrientation()+1)%4) + 1);
+            }
         }
 
-        // random stuff
-
         sf::Packet sendPacket;
-        sendPacket << "Quando";
-        for(int i=0; i<clientNumber; i++)
-            clients[i].send(sendPacket);
+        sendPacket << clientNumber;
 
+        for(int i=0; i<clientNumber; i++){
+
+        }
     }
 
 }

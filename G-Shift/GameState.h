@@ -4,6 +4,7 @@
 #include "State.h"
 #include <string>
 #include "GameServer.h"
+#include "Block.h"
 
 class GameState: public State
 {
@@ -11,10 +12,13 @@ private:
     GameServer gs;
     bool isHost;
     bool isReady;
+    int player;
     sf::Font font;
     sf::TcpSocket client;
     sf::IpAddress ip;
     sf::Thread game_thread;
+    sf::Image levelFile;
+    Block blockList[40][21];
 public:
     GameState();
     void gameReady();
