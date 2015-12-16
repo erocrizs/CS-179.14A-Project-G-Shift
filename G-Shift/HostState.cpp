@@ -18,6 +18,10 @@ HostState::HostState()
 	fourPlayer.setPosition(400, 350);
 	fourPlayer.setDimension(200, 30);
 
+    practice.setContent("Practice!");
+    practice.setPosition(400, 400);
+    practice.setDimension(200, 30);
+
 	back.setContent("Back");
 	back.setPosition(150, 550);
 	back.setDimension(200, 30);
@@ -28,6 +32,7 @@ HostState::HostState()
 void HostState::update(float dt, float u, float v)
 {
     back.checkCollision(u, v);
+    practice.checkCollision(u, v);
     twoPlayer.checkCollision(u, v);
     threePlayer.checkCollision(u, v);
     fourPlayer.checkCollision(u, v);
@@ -46,6 +51,7 @@ void HostState::draw(sf::RenderWindow& window)
     twoPlayer.draw(window);
     threePlayer.draw(window);
     fourPlayer.draw(window);
+    practice.draw(window);
     back.draw(window);
 }
 
@@ -66,6 +72,9 @@ void HostState::onClick(float u, float v)
     else if(fourPlayer.checkCollision(u, v))
     {
         manager->push(3, "h 4");
+    } else if(practice.checkCollision(u, v))
+    {
+        manager->push(3, "h 1");
     }
 }
 

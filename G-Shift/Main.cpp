@@ -43,9 +43,10 @@ int main()
             if (event.type == sf::Event::Closed){
                 window.close();
                 gs->timeFinish();
-            } else if(event.type == sf::Event::MouseButtonPressed)
+            }
+            if(event.type == sf::Event::MouseButtonPressed)
                 sm.onClick(u, v);
-            else if (event.type == sf::Event::TextEntered)
+            if (event.type == sf::Event::TextEntered)
             {
                 if (event.text.unicode == '\b')
                 {
@@ -58,7 +59,10 @@ int main()
                     text += static_cast<char>(event.text.unicode);
                 }
                 sm.getText(text);
-                std::cout << text << std::endl;
+            }
+            if(event.type == sf::Event::KeyReleased)
+            {
+                sm.onKeyReleased(event);
             }
         }
         sm.update(spf, u, v);

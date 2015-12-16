@@ -23,6 +23,7 @@ public:
     void onClick(float, float);
     void getText(std::string text);
     void accept();
+    void onKeyReleased(sf::Event);
 };
 
 #endif // STATEMANAGER_H_INCLUDED

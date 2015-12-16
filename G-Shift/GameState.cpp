@@ -14,19 +14,29 @@ GameState::GameState(): game_thread(&GameServer::start_server, &gs)
     client.setBlocking(false);
     font.loadFromFile("asset/fonts/PressStart2P.ttf");
     isReady = false;
+    pressA = false;
+    pressS = false;
+    pressLShift = false;
+    pressSpace = false;
+    mousePressed = false;
+    index = -1;
 }
 
 void GameState::update(float dt, float u, float v)
 {
     if(isReady)
     {
+
+        pressA = sf::Keyboard::isKeyPressed(sf::Keyboard::A);
+        pressS = sf::Keyboard::isKeyPressed(sf::Keyboard::S);
+        pressSpace = sf::Keyboard::isKeyPressed(sf::Keyboard::Space);
+
         sf::Packet toSend;
+        toSend << pressA << pressS << pressSpace << pressLShift << mousePressed << u << v;
         client.send(toSend);
 
-        //TODO
-
-        sf::Packet toGet;
-        client.receive(toGet);
+        pressLShift = false;
+        mousePressed = false;
 
     } else {
         if(client.getRemoteAddress()!=sf::IpAddress::None)
@@ -34,6 +44,20 @@ void GameState::update(float dt, float u, float v)
             sf::Packet packet;
             client.receive(packet);
             packet >> isReady;
+            packet >> index;
+            packet >> players;
+            renderer.setIndex(index);
+            renderer.setN(players);
+            client.setBlocking(true);
+
+            sf::Packet toSend;
+            toSend << sf::Keyboard::isKeyPressed(sf::Keyboard::A); // LEFT
+            toSend << sf::Keyboard::isKeyPressed(sf::Keyboard::S); //RIGHT
+            toSend << sf::Keyboard::isKeyPressed(sf::Keyboard::Space); // RISE
+            toSend << sf::Keyboard::isKeyPressed(sf::Keyboard::LShift); // Shift
+            toSend << sf::Mouse::isButtonPressed(sf::Mouse::Left); // SHOOTING
+            toSend << u << v; // mouse pointer coordinate
+            client.send(toSend);
         }
     }
 
@@ -41,9 +65,24 @@ void GameState::update(float dt, float u, float v)
 
 void GameState::draw(sf::RenderWindow& window)
 {
+
     if(isReady)
     {
-        // TODO
+
+        sf::Packet toGet;
+        client.receive(toGet);
+
+        for(int i=0; i<players; i++)
+        {
+            float pX, pY, bX, bY, deg;
+            toGet >> pX >> pY >> deg >> bX >> bY;
+            renderer.setDeg(i, deg);
+            renderer.setPlayerPosition(i, pX, pY);
+            renderer.setBulletPosition(i, bX, bY);
+        }
+
+        renderer.draw(window);
+
     } else
     {
         std::string message = "Connecting...";
@@ -65,6 +104,19 @@ void GameState::draw(sf::RenderWindow& window)
 
 void GameState::onClick(float u, float v)
 {
+    if(isReady)
+    {
+        mousePressed = true;
+    }
+}
+
+void GameState::onKeyReleased(sf::Event e)
+{
+    if(isReady)
+    {
+        if(e.key.code == sf::Keyboard::LShift)
+            pressLShift = true;
+    }
 }
 
 void GameState::gameReady()
@@ -82,7 +134,7 @@ void GameState::pass(std::string play)
     }
     else if(play[0]=='h')
     {
-        int players = 1;
+        players = 1;
         if(play[2] == '2') players = 2;
         else if (play[2] == '3') players = 3;
         else if (play[2] == '4') players = 4;
@@ -93,9 +145,7 @@ void GameState::pass(std::string play)
     }
 
     ip = sf::IpAddress(ipString);
-    client.setBlocking(false);
     client.connect(ip, 53000);
-    std::cout << "awesome" << std::endl;
 }
 
 GameServer* GameState::getServer()
@@ -106,4 +156,5 @@ GameServer* GameState::getServer()
 void GameState::onDeactivate()
 {
     isReady = false;
+    index = -1;
 }

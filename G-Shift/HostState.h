@@ -9,6 +9,7 @@ class HostState: public State
 {
 private:
     Button back;
+    Button practice;
     Button twoPlayer;
     Button threePlayer;
     Button fourPlayer;

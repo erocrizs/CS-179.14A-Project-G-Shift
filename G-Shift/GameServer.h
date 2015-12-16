@@ -2,6 +2,9 @@
 #define GAMESERVER_H_INCLUDED
 
 #include <SFML/Network.hpp>
+#include <SFML/Graphics.hpp>
+#include "PlayerInfo.h"
+#include "BulletInfo.h"
 
 class GameState;
 class GameServer {
@@ -11,8 +14,11 @@ private:
     bool timesUp;
     bool running;
     GameState* gs;
+    PlayerInfo player[4];
+    BulletInfo bullet[4];
     sf::TcpSocket clients[4];
     sf::TcpListener listener;
+    sf::Image level;
 public:
     GameServer();
     void reset();

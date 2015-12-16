@@ -1,5 +1,5 @@
 #include "Vec2.h"
-#include <cmath>
+#include <math.h>
 #include <algorithm>
 
 Vec2::Vec2()
@@ -24,13 +24,13 @@ float Vec2::getY()
     return y;
 }
 
-Vec2 Vec2::operator+(Vec2& that)
+Vec2 Vec2::operator+(Vec2 that)
 {
     Vec2 ret(x+that.getX(), y+that.getY());
     return ret;
 }
 
-Vec2 Vec2::operator-(Vec2& that)
+Vec2 Vec2::operator-(Vec2 that)
 {
     Vec2 ret(x-that.getX(), y-that.getY());
     return ret;
@@ -42,12 +42,12 @@ Vec2 Vec2::operator*(float i)
     return ret;
 }
 
-float Vec2::operator*(Vec2& that)
+float Vec2::operator*(Vec2 that)
 {
     return (x*that.getX()) + (y*that.getY());
 }
 
-float Vec2::operator%(Vec2& that)
+float Vec2::operator%(Vec2 that)
 {
     return (x*that.getY())-(y*that.getX());
 }
@@ -64,10 +64,24 @@ Vec2 Vec2::normalize()
     return ret;
 }
 
-Vec2 Vec2::perp()
+Vec2 Vec2::perpCCW()
 {
     Vec2 ret(-y, x);
     return ret;
+}
+
+Vec2 Vec2::perpCW()
+{
+    Vec2 ret(y, -x);
+    return ret;
+}
+
+float Vec2::getDegree()
+{
+    float rad = std::atan2(y, x);
+    float deg = (rad*180)/3.1415926535897;
+    if(deg<0) deg += 360;
+    return deg;
 }
 
 float clamp(float val, float bot, float top)

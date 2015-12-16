@@ -99,3 +99,8 @@ void StateManager::accept()
     if(m_states.empty()) return;
     m_states.back()->accept();
 }
+
+void StateManager::onKeyReleased(sf::Event e)
+{
+    m_states.back()->onKeyReleased(e);
+}

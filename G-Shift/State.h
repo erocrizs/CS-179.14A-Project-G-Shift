@@ -29,6 +29,7 @@ public:
     virtual void onClick(float, float) {};
     virtual void getText(std::string) {};
     virtual void accept() {};
+    virtual void onKeyReleased(sf::Event e){};
 };
 
 #endif // STATE_H_INCLUDED

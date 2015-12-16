@@ -31,6 +31,9 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="BlockSprite.h" />
+		<Unit filename="BulletInfo.h" />
+		<Unit filename="BulletSprite.h" />
 		<Unit filename="Button.cpp" />
 		<Unit filename="Button.h" />
 		<Unit filename="GameServer.cpp" />
@@ -46,6 +49,10 @@
 		<Unit filename="MenuScreen.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="PlayerInfo.h" />
+		<Unit filename="PlayerSprite.h" />
+		<Unit filename="Renderer.cpp" />
+		<Unit filename="Renderer.h" />
 		<Unit filename="Splash.cpp" />
 		<Unit filename="Splash.h">
 			<Option target="&lt;{~None~}&gt;" />
