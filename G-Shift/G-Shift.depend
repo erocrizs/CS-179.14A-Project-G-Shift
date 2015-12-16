@@ -722,7 +722,7 @@
 	"PlayerInfo.h"
 	"BulletInfo.h"
 
-1450283222 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\gameserver.cpp
+1450286270 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\gameserver.cpp
 	"GameServer.h"
 	<iostream>
 	<math.h>
@@ -734,7 +734,7 @@
 1449995798 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\bulletinfo.h
 	"Vec2.h"
 
-1450188926 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\renderer.h
+1450287355 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\renderer.h
 	"PlayerSprite.h"
 	"BulletSprite.h"
 	"BlockSprite.h"
@@ -752,7 +752,7 @@
 1450001210 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\blocksprite.h
 	<SFML/Graphics.hpp>
 
-1450189119 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\renderer.cpp
+1450287090 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\renderer.cpp
 	"Renderer.h"
 	<iostream>
 

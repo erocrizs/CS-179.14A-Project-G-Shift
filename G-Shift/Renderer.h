@@ -11,6 +11,9 @@ private:
     int index;
     int blockCount;
     float deg;
+    sf::RenderTexture rt;
+    sf::Texture actualTexture;
+    sf::Sprite actualSprite;
     std::vector<BlockSprite> blocks;
     PlayerSprite players[4];
     BulletSprite bullets[4];
@@ -18,7 +21,7 @@ private:
         Vec2 playerPos = players[index].getPosition();
         Vec2 resultant = here-playerPos;
         float dist = resultant.magnitude();
-        return dist<500;
+        return dist<640;
     }
 public:
     Renderer();
