@@ -12,12 +12,12 @@ private:
 public:
     PlayerInfo() {
         fallVelocity = Vec2(0, 0);
-        acceleration = Vec2(0, 100);
+        acceleration = Vec2(0, 1000);
         horizontalVelocity = Vec2(200, 0);
     }
     Vec2 getPos() {return position;}
     Vec2 getAcc() {return acceleration;}
-    Vec2 getVel() {return fallVelocity;}
+    Vec2 getFallVel() {return fallVelocity;}
     Vec2 getHorizontalVel() {return horizontalVelocity;}
     void setAcceleration(Vec2 acc) {
         acceleration = acc;

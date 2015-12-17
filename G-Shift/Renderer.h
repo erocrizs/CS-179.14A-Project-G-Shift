@@ -14,11 +14,13 @@ private:
     std::vector<BlockSprite> blocks;
     PlayerSprite players[4];
     BulletSprite bullets[4];
+    sf::RenderTexture preBD;
+    sf::Texture backdrop;
     bool toBeRendered(Vec2 here){
         Vec2 playerPos = players[index].getPosition();
         Vec2 resultant = here-playerPos;
         float dist = resultant.magnitude();
-        return dist<500;
+        return dist<640;
     }
 public:
     Renderer();

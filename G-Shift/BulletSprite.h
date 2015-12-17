@@ -15,7 +15,8 @@ public:
         cs.setRadius(rad);
         cs.setOrigin(rad, rad);
     };
-    void draw(sf::RenderTarget& rt, sf::Color c) {
+    void draw(sf::RenderTarget& rt, sf::Color c, Vec2 relative) {
+        Vec2 pos = position + relative;
         cs.setFillColor(c);
         cs.setPosition(position.getX(), position.getY());
         rt.draw(cs);

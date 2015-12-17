@@ -43,6 +43,7 @@ int main()
             if (event.type == sf::Event::Closed){
                 window.close();
                 gs->timeFinish();
+                system("pause");
             }
             if(event.type == sf::Event::MouseButtonPressed)
                 sm.onClick(u, v);
@@ -76,7 +77,11 @@ int main()
         float rem = spf-tInSec;
         if(rem>0) {
             sf::sleep(sf::seconds(rem));
+            //std::cout << "rem: " << rem << std::endl;
         }
+        t = clock.getElapsedTime();
+        tInSec = t.asSeconds();
+        //std::cout<< "frameRate: " << tInSec << std::endl;
     }
 
 

@@ -60,7 +60,7 @@
 
 1450188517 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\vec2.h
 
-1450187964 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\main.cpp
+1450366063 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"State.h"
@@ -131,7 +131,7 @@
 	"State.h"
 	"Button.h"
 
-1450273943 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\gamestate.cpp
+1450290505 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\gamestate.cpp
 	"GameState.h"
 	"GameServer.h"
 	"StateManager.h"
@@ -716,43 +716,46 @@
 	<SFML/Network/Socket.hpp>
 	<vector>
 
-1449856539 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\gameserver.h
+1450289670 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\gameserver.h
 	<SFML/Network.hpp>
 	<SFML/Graphics.hpp>
 	"PlayerInfo.h"
 	"BulletInfo.h"
 
-1450283222 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\gameserver.cpp
+1450365950 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\gameserver.cpp
 	"GameServer.h"
+	<stdlib.h>
 	<iostream>
 	<math.h>
+	<algorithm>
 	"Vec2.h"
 
-1450274597 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\playerinfo.h
+1450365150 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\playerinfo.h
 	"Vec2.h"
 
 1449995798 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\bulletinfo.h
 	"Vec2.h"
 
-1450188926 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\renderer.h
+1450360782 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\renderer.h
 	"PlayerSprite.h"
 	"BulletSprite.h"
 	"BlockSprite.h"
 	<SFML/Graphics.hpp>
 
-1450189048 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\playersprite.h
+1450364345 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\playersprite.h
 	"Vec2.h"
 	<SFML/Graphics.hpp>
 	<iostream>
+	"Vec2.h"
 
-1449999015 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\bulletsprite.h
+1450361307 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\bulletsprite.h
 	"Vec2.h"
 	<SFML/Graphics.hpp>
 
 1450001210 c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\blocksprite.h
 	<SFML/Graphics.hpp>
 
-1450189119 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\renderer.cpp
+1450365704 source:c:\users\aemiel\documents\code stuff\pc game dev\cs-179.14a-project-g-shift\g-shift\renderer.cpp
 	"Renderer.h"
 	<iostream>
 

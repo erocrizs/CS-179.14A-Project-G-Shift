@@ -1,6 +1,8 @@
 #include "GameServer.h"
+#include <stdlib.h>
 #include <iostream>
 #include <math.h>
+#include <algorithm>
 #include "Vec2.h"
 
 GameServer::GameServer()
@@ -73,8 +75,6 @@ void GameServer::start_server()
         }
     }
 
-    player[0].setPosition(Vec2(60, 60));
-
     while(!timesUp)
     {
 
@@ -89,6 +89,8 @@ void GameServer::start_server()
             receivePacket >> left >> right >> rise >> shift >> shoot >> u >> v;
             Vec2 playPos = player[i].getPos();
             int initX, initY, endX, endY;
+
+            // Left and Right Movements
             initX = floor(playPos.getX()/40.0);
             initY = floor(playPos.getY()/40.0);
 
@@ -102,129 +104,41 @@ void GameServer::start_server()
             endX = floor(playPos.getX()/40.0);
             endY = floor(playPos.getY()/40.0);
 
-            if(endX==initX && initY!=endY)
-            {
-                int prev = -1;
-                int offset = 20;//initY<endY ? 30 : 10 ;
-                for(int i=initY; ; )
-                {
-                    if((initY<endY && i>endY)||(initY>endY && i<endY)) break;
+            // Collision check
+            // TODO
 
-                    if(level.getPixel(initX, i)==sf::Color::Black)
-                    {
-                        playPos = Vec2(playPos.getX(), (prev*40)+offset);
-                        endX = floor(playPos.getX()/40.0);
-                        endY = floor(playPos.getY()/40.0);
-                        break;
-                    }
-                    if( playPos.getX()<((initX*40)+10) && level.getPixel(initX-1, i)==sf::Color::Black)
-                    {
-                        playPos = Vec2(playPos.getX(), (prev*40)+offset);
-                        endX = floor(playPos.getX()/40.0);
-                        endY = floor(playPos.getY()/40.0);
-                        break;
-                    }
-                    if( playPos.getX()>((initX*40)+30) && level.getPixel(initX+1, i)==sf::Color::Black)
-                    {
-                        playPos = Vec2(playPos.getX(), (prev*40)+offset);
-                        endX = floor(playPos.getX()/40.0);
-                        endY = floor(playPos.getY()/40.0);
-                        break;
-                    }
-                    prev = i;
-                    if(initY<endY) i++;
-                    else if(initY>endY) i--;
-                }
+            // Gravity Movement
+
+            // integrate gravity
+            initX = endX;
+            initY = endY;
+
+            Vec2 verticalVelocity = player[i].getFallVel();
+            Vec2 addedVelocity = player[i].getAcc()*dt;
+            if(rise)
+                addedVelocity = addedVelocity*-1;
+            verticalVelocity = verticalVelocity + addedVelocity;
+            std::cout << verticalVelocity.magnitude() << std::endl;
+            if(verticalVelocity.magnitude()>700){
+                float xMag = std::min(700.0f, std::abs(verticalVelocity.getX()));
+                float yMag = std::min(700.0f, std::abs(verticalVelocity.getY()));
+                float xSign = 1, ySign = 1;
+                if(verticalVelocity.getX()<0) xSign = -1;
+                if(verticalVelocity.getY()<0) ySign = -1;
+                verticalVelocity = Vec2(xMag*xSign, yMag*ySign);
             }
-            else if(endY==endY && initX!=endX)
-            {
-                int prev = -1;
-                int offset = 20;//initX<endX ? 30 : 10 ;
-                for(int i=initX; ; )
-                {
-                    if((initX<endX && i>endX)||(initX>endX && i<endX)) break;
 
-                    if(level.getPixel(i, initY)==sf::Color::Black)
-                    {
-                        playPos = Vec2((prev*40)+offset, playPos.getY());
-                        endX = floor(playPos.getX()/40.0);
-                        endY = floor(playPos.getY()/40.0);
-                        break;
-                    }
-                    if( playPos.getY()<((initY*40)+10) && level.getPixel(i, initY-1)==sf::Color::Black)
-                    {
-                        playPos = Vec2((prev*40)+offset, playPos.getY());
-                        endX = floor(playPos.getX()/40.0);
-                        endY = floor(playPos.getY()/40.0);
-                        break;
-                    }
-                    if( playPos.getY()>((initY*40)+30) && level.getPixel(i, initY+1)==sf::Color::Black)
-                    {
-                        playPos = Vec2((prev*40)+offset, playPos.getY());
-                        endX = floor(playPos.getX()/40.0);
-                        endY = floor(playPos.getY()/40.0);
-                        break;
-                    }
+            Vec2 verticalDisp = verticalVelocity*dt;
+            player[i].setFallVelocity(verticalVelocity);
+            playPos = playPos + verticalDisp;
 
-                    prev = i;
-                    if(initX<endX) i++;
-                    else if(initX>endX) i--;
-                }
+            endX = floor(playPos.getX()/40.0);
+            endY = floor(playPos.getY()/40.0);
 
-            }
-            else if(endX==initX && endY==initY)
-            {
-                for(int i=-1; i<=1; i+=2)
-                {
-                    for(int j=-1; j<=1; j+=2)
-                    {
-                        if(clamp(initX+i, 0, 40)!=initX+j || clamp(initY+j, 0, 21)!=initY+j) continue;
-                        if(i!=0 && level.getPixel(initX+i, initY)==sf::Color::Black)
-                        {
-                            float blockX = (initX+i)*40+20;
-                            float blockY = initY*40+20;
-                            Vec2 block(blockX, blockY);
-                            Vec2 resultant = block-playPos;
 
-                            Vec2 nearestFromBlock(clamp(playPos.getX(), blockX-20, blockX+20), clamp(playPos.getY(), blockY-20, blockY+20));
-                            Vec2 nearestFromPlayer(clamp(blockX, playPos.getX()-20, playPos.getX()+20), clamp(blockY, playPos.getY()-20, playPos.getY()+20));
-                            Vec2 blockCenterToNearest = nearestFromBlock-block;
-                            Vec2 playerCenterToNearest = nearestFromPlayer-playPos;
+            // Collision detection
+            // TO DO
 
-                            float distBetweenCenters = resultant.magnitude();
-                            float a = blockCenterToNearest.magnitude();
-                            float b = playerCenterToNearest.magnitude();
-                            if(distBetweenCenters+3 < a + b) //collide
-                            {
-                                playPos = Vec2(initX*40+20, playPos.getY());
-                                std::cout << "a" << std::endl;
-                            }
-                        }
-                        if(j!=0 && level.getPixel(initX, initY+j)==sf::Color::Black)
-                        {
-                            float blockX = initX*40+20;
-                            float blockY = (initY+j)*40+20;
-                            Vec2 block(blockX, blockY);
-                            Vec2 resultant = block-playPos;
-
-                            Vec2 nearestFromBlock(clamp(playPos.getX(), blockX-20, blockX+20), clamp(playPos.getY(), blockY-20, blockY+20));
-                            Vec2 nearestFromPlayer(clamp(blockX, playPos.getX()-20, playPos.getX()+20), clamp(blockY, playPos.getY()-20, playPos.getY()+20));
-                            Vec2 blockCenterToNearest = nearestFromBlock-block;
-                            Vec2 playerCenterToNearest = nearestFromPlayer-playPos;
-
-                            float distBetweenCenters = resultant.magnitude();
-                            float a = blockCenterToNearest.magnitude();
-                            float b = playerCenterToNearest.magnitude();
-                            if(distBetweenCenters+3 < a + b) //collide
-                            {
-                                playPos = Vec2(playPos.getX(), initY*40+20);
-                                std::cout << "b" << std::endl;
-                            }
-
-                        }
-                    }
-                }
-            }
 
             player[i].setPosition(playPos);
 
@@ -310,7 +224,7 @@ void GameServer::start_server()
         sf::Packet sendPacket;
         for(int i=0; i<clientNumber; i++)
         {
-            std::cout << player[i].getAcc().getX() << " " << player[i].getAcc().getY() << " -> " << player[i].getAcc().getDegree() << std::endl;
+            //std::c << player[i].getAcc().getX() << " " << player[i].getAcc().getY() << " -> " << player[i].getAcc().getDegree() << std::endl;
             sendPacket << player[i].getPos().getX() << player[i].getPos().getY() << (player[i].getAcc().getDegree()-90);
             sendPacket << bullet[i].getPos().getY() << bullet[i].getPos().getY();
         }
